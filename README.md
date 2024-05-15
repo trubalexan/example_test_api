@@ -71,8 +71,6 @@ DOCS_URL = "/swagger-ui.html?urls.primaryName=QA#/"
 
 SCHEMA_URL = "https://hr-challenge.dev.tapyou.com/v2/api-docs?group=QA"
 
-- данные пользователя согласно следующему примеру
-
 
 ## Дополнительная информация
 
