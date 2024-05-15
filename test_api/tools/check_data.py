@@ -61,6 +61,8 @@ class CompareData:
     def get_results(self):
         self.data_length_compare()
         self.data_compare()
+        if self.answer_data:
+            self.answer = False
         return self.answer, self.answer_data
 
 

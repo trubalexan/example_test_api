@@ -16,8 +16,8 @@ if __name__ == "__main__":
     """
     Gather methods ID from the schema
     """
-    from settings import SCHEMA_URL
+    from settings import SCHEMA_URL_v3
     from tools.api_request_methods import request_api_get
-    api_answer = request_api_get(SCHEMA_URL)
+    api_answer = request_api_get(SCHEMA_URL_v3)
     endpoints_path = api_answer.json()["paths"]
     print(gather_api_endpoints_method_names(endpoints_path))
