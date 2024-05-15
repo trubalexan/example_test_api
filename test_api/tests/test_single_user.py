@@ -57,7 +57,8 @@ def check_user_api_no_success(test_url_link: str, user_id: dict):
     addresses_status_code = api_single_user_answer.status_code
     assert addresses_status_code != 200, \
         f" удалось получить данные пользователя: {api_single_user_answer.json()}"
-    print(" информация: ", api_single_user_answer.json()["errorMessage"])
+    if "errorMessage" in api_single_user_answer.json().keys():
+        print(" информация: ", api_single_user_answer.json()["errorMessage"])
     print('\n---- Проверки закончены ----')
     return api_single_user_answer
 
@@ -140,6 +141,7 @@ def test_user_1(testurl: str):
 
 def test_user_no_id(testurl: str):
     user_no_id = USER_ID_NOT_EXISTS
+    user_no_id["link_extension"] = ""
     user_no_id["response_code"] = 404
     check_user_api_no_success(testurl, user_no_id)
 
