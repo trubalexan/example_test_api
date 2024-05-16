@@ -40,7 +40,8 @@ def test_openapi_page(testurl):
     endpoints_method_list = gather_api_endpoints_method_names(endpoints)
     check_endpoints = CompareData(endpoints_method_list, ID_FULL_LIST_v2, ID_FULL_LIST_v2)
     check_status, check_results = check_endpoints.get_results()
-    assert check_status, f"Разница в количества апи методов {check_results}"
+    assert check_status, f"Разница в количестве апи методов {check_results}"
+    print("Список доступных методов:\t", endpoints_method_list)
     print("---- Список апи методов совпадает с требованиями ----")
     print('\n---- Проверка страницы документации проекта в формате json: openapi_page v3----')
     openapi_answer = api_endpoint_request(SCHEMA_URL_v3, OPENAPI_v3)
@@ -49,7 +50,8 @@ def test_openapi_page(testurl):
     endpoints_method_list = gather_api_endpoints_method_names(endpoints)
     check_endpoints = CompareData(endpoints_method_list, ID_FULL_LIST_v3, ID_FULL_LIST_v3)
     check_status, check_results = check_endpoints.get_results()
-    assert check_status, f"Разница в количества апи методов {check_results}"
+    assert check_status, f"Разница в количестве апи методов {check_results}"
+    print("Список доступных методов:\t", endpoints_method_list)
     print("---- Список апи методов совпадает с требованиями ----")
     print('\n---- Проверка закончена ----')
 

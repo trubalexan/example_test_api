@@ -157,3 +157,21 @@ USERS_LONG = {
         "message": None
         }
     }
+
+USERS_SPACE = {
+    'api_method': "get",
+    'link': "/api/test/users",
+    'link_extension': "?gender=ma le",
+    'header': {"accept": "application/json",
+               "charset": "utf-8"
+               },
+    'data': {},
+    'json': {},
+    "response_code": 500,
+    "responses": {
+        "isSuccess": None,
+        "errorCode": None,
+        "errorMessage": None,
+        "idList": None
+        }
+    }

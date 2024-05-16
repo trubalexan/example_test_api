@@ -26,7 +26,7 @@ def check_users_api_success(test_url_link: str, user_type: dict):
 
 def check_users_api_error(test_url_link: str, user_type: dict):
     """
-    Тест проверяет работу запроса пользователей
+    Метод проверяет работу запроса пользователей
     :param user_type:
     :param test_url_link:
     :return: api_users_answer
@@ -47,32 +47,67 @@ def check_users_api_error(test_url_link: str, user_type: dict):
 
 
 def test_users_male(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей мужского пола
+    """
     check_users_api_success(testurl, USERS_MALE)
 
 
 def test_users_female(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей женского пола
+    """
     check_users_api_success(testurl, USERS_FEMALE)
 
 
 def test_users_any(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей любого пола
+    """
     check_users_api_success(testurl, USERS_ANY)
 
 
 def test_users_arbitrary(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей несуществующего пола
+    """
     check_users_api_error(testurl, USERS_ARBITRARY)
 
 
 def test_users_no_gender(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей без указания пола
+    """
     check_users_api_error(testurl, USERS_NO_GENDER)
 
 
 def test_users_number(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей при отправке цифры вместо пола
+    """
     check_users_api_error(testurl, USERS_NUMBER)
 
 
 def test_users_symbol(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей при отправке спецсимволов вместо пола
+    """
     check_users_api_error(testurl, USERS_SYMBOL)
 
 
 def test_users_long(testurl: str):
+    """
+    Тест проверяет ответ сервера при запросе данных пользователей при отправке длинной строки вместо пола
+    """
     check_users_api_error(testurl, USERS_LONG)
+
+
+def test_users_space(testurl: str):
+    """
+    Тест проверяет ответ сервера при наличии пробела в названии пола пользователя
+    """
+    check_users_api_error(testurl, USERS_SPACE)
+    USERS_SPACE["link_extension"] = "?gender= male"
+    check_users_api_error(testurl, USERS_SPACE)
+    USERS_SPACE["link_extension"] = "?gender=male "
+    check_users_api_error(testurl, USERS_SPACE)
