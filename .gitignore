@@ -1,1 +1,7 @@
 /test_api/.env
+/test_api/.idea/
+/test_api/__pycache__/
+/test_api/data/__pycache__/
+/test_api/report.html
+/test_api/tests/__pycache__/
+/test_api/tools/__pycache__/
